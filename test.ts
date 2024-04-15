@@ -1,5 +1,5 @@
 const another: string =   
-  'hey';
+  'Hello';
 
 const anotherFunction = (another: string): string => {
     console.log(another
