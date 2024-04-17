@@ -1,6 +1,6 @@
 # Prettier config test
 
-This template should help get you started developing with Vue 3 in Vite.
+Dummy project for testing prettier config, including pre-commit hooks and CI checking.
 
 ## Recommended IDE Setup
 
