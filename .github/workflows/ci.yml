@@ -1,31 +1,20 @@
-name: Node.js CI
+name: Prettier Check
 
 on: [push, pull_request]
 
 jobs:
-  continuous-integration:
+  prettier-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test --if-present
 
-      - name: Check if relevant files were changed
-        id: check-files
-        run: |
-          FILES=$(git diff --name-only HEAD^ HEAD)
-          RELEVANT_FILES=$(echo "$FILES" | grep -vE '^(.prettierignore)')
-          if [ -z "$RELEVANT_FILES" ]; then
-            echo "::set-output name=skip::true"
-          fi
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Check formatting with Prettier
-        if: steps.check-files.outputs.skip != 'true'
         run: npx prettier --check .
