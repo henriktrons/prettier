@@ -3,9 +3,9 @@ const another: string =
 
 const anotherFunction = (another: string): string => {
     console.log(another
-
-    );
     
+    );
+    console.log(" hey")
   return another;
 }
 
