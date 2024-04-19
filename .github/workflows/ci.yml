@@ -13,8 +13,8 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install Prettier
-        run: npm install prettier
+      - name: Install Prettier exact version 3.2.5
+        run: npm install prettier@3.2.5
 
       - name: Check formatting with Prettier
         run: npx prettier --check .
