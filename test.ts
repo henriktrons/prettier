@@ -5,7 +5,7 @@ const anotherFunction = (another: string): string => {
     console.log(another
     
     );
-    console.log(" hey")
+    console.log(" hesssssy")
   return another;
 }
 
