@@ -18,7 +18,7 @@ jobs:
           mkdir ci
           echo '{ "dependencies": { "prettier": "3.2.5" } }' > ci/package.json
           cd ci
-          npm ci
+          npm install
 
       - name: Check formatting with Prettier
         run: npx --prefix ci prettier --check .
