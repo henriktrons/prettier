@@ -14,7 +14,11 @@ jobs:
           node-version: "20"
 
       - name: Install Prettier exact version 3.2.5
-        run: npm install --no-save prettier@3.2.5
+        run: |
+          mkdir ci
+          echo '{ "dependencies": { "prettier": "3.2.5" } }' > ci/package.json
+          cd ci
+          npm ci
 
       - name: Check formatting with Prettier
-        run: npx prettier --check .
+        run: npx --prefix ci prettier --check .
